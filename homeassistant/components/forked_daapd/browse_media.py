@@ -12,6 +12,8 @@ from homeassistant.helpers.network import is_internal_request
 
 from .const import CAN_PLAY_TYPE, URI_SCHEMA
 
+owntone_library="OwnTone Library"
+
 if TYPE_CHECKING:
     from . import media_player
 
@@ -290,10 +292,10 @@ def base_owntone_library() -> BrowseMedia:
         for name, (media_class, media_type, media_subtype) in TOP_LEVEL_LIBRARY.items()
     ]
     return BrowseMedia(
-        title="OwnTone Library",
+        title=owntone_library,
         media_class=MediaClass.APP,
         media_content_id=create_media_content_id(
-            title="OwnTone Library", media_type=MediaType.APP
+            title=owntone_library, media_type=MediaType.APP
         ),
         media_content_type=MediaType.APP,
         can_play=False,
@@ -308,10 +310,10 @@ def library(other: Sequence[BrowseMedia] | None) -> BrowseMedia:
 
     top_level_items = [
         BrowseMedia(
-            title="OwnTone Library",
+            title=owntone_library,
             media_class=MediaClass.APP,
             media_content_id=create_media_content_id(
-                title="OwnTone Library", media_type=MediaType.APP
+                title=owntone_library, media_type=MediaType.APP
             ),
             media_content_type=MediaType.APP,
             can_play=False,

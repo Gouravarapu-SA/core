@@ -34,6 +34,9 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 from homeassistant.util import Throttle
 
+mdi_solar_power="mdi:solar-power"
+mdi_solar_panel="mdi:solar-panel"
+
 DOMAIN = "solaredge_local"
 UPDATE_DELAY = timedelta(seconds=10)
 
@@ -84,41 +87,41 @@ SENSOR_TYPES: tuple[SolarEdgeLocalSensorEntityDescription, ...] = (
         name="Current Power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
-        icon="mdi:solar-power",
+        icon=mdi_solar_power,
     ),
     SolarEdgeLocalSensorEntityDescription(
         key="energyThisMonth",
         name="Energy This Month",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        icon="mdi:solar-power",
+        icon=mdi_solar_power,
     ),
     SolarEdgeLocalSensorEntityDescription(
         key="energyThisYear",
         name="Energy This Year",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        icon="mdi:solar-power",
+        icon=mdi_solar_power,
     ),
     SolarEdgeLocalSensorEntityDescription(
         key="energyToday",
         name="Energy Today",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        icon="mdi:solar-power",
+        icon=mdi_solar_power,
     ),
     SolarEdgeLocalSensorEntityDescription(
         key="energyTotal",
         name="Lifetime Energy",
         native_unit_of_measurement=UnitOfEnergy.WATT_HOUR,
         device_class=SensorDeviceClass.ENERGY,
-        icon="mdi:solar-power",
+        icon=mdi_solar_power,
     ),
     SolarEdgeLocalSensorEntityDescription(
         key="optimizers",
         name="Optimizers Online",
         native_unit_of_measurement="optimizers",
-        icon="mdi:solar-panel",
+        icon=mdi_solar_panel,
         extra_attribute="optimizers_connected",
     ),
     SolarEdgeLocalSensorEntityDescription(
@@ -126,20 +129,20 @@ SENSOR_TYPES: tuple[SolarEdgeLocalSensorEntityDescription, ...] = (
         name="Average Optimizer Current",
         native_unit_of_measurement=UnitOfElectricCurrent.AMPERE,
         device_class=SensorDeviceClass.CURRENT,
-        icon="mdi:solar-panel",
+        icon=mdi_solar_panel,
     ),
     SolarEdgeLocalSensorEntityDescription(
         key="optimizerpower",
         name="Average Optimizer Power",
         native_unit_of_measurement=UnitOfPower.WATT,
         device_class=SensorDeviceClass.POWER,
-        icon="mdi:solar-panel",
+        icon=mdi_solar_panel,
     ),
     SolarEdgeLocalSensorEntityDescription(
         key="optimizertemperature",
         name="Average Optimizer Temperature",
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
-        icon="mdi:solar-panel",
+        icon=mdi_solar_panel,
         device_class=SensorDeviceClass.TEMPERATURE,
     ),
     SolarEdgeLocalSensorEntityDescription(
@@ -147,7 +150,7 @@ SENSOR_TYPES: tuple[SolarEdgeLocalSensorEntityDescription, ...] = (
         name="Average Optimizer Voltage",
         native_unit_of_measurement=UnitOfElectricPotential.VOLT,
         device_class=SensorDeviceClass.VOLTAGE,
-        icon="mdi:solar-panel",
+        icon=mdi_solar_panel,
     ),
 )
 

@@ -9,6 +9,11 @@ from async_upnp_client.profiles.dlna import PlayMode as _PlayMode
 
 from homeassistant.components.media_player import MediaType, RepeatMode
 
+object_item_audioItem_musicTrack="object.item.audioItem.musicTrack"
+object_item_videoItem_videoBroadcast="object.item.videoItem.videoBroadcast"
+object_item_epgItem_videoProgram="object.item.epgItem.videoProgram"
+object_container_person_musicArtist="object.container.person.musicArtist"
+
 LOGGER = logging.getLogger(__package__)
 
 DOMAIN: Final = "dlna_dmr"
@@ -34,22 +39,22 @@ MEDIA_TYPE_MAP: Mapping[str, MediaType] = {
     "object.item.imageItem": MediaType.IMAGE,
     "object.item.imageItem.photo": MediaType.IMAGE,
     "object.item.audioItem": MediaType.MUSIC,
-    "object.item.audioItem.musicTrack": MediaType.MUSIC,
+    bject_item_audioItem_musicTrack: MediaType.MUSIC,
     "object.item.audioItem.audioBroadcast": MediaType.MUSIC,
     "object.item.audioItem.audioBook": MediaType.PODCAST,
     "object.item.videoItem": MediaType.VIDEO,
     "object.item.videoItem.movie": MediaType.MOVIE,
-    "object.item.videoItem.videoBroadcast": MediaType.TVSHOW,
+    object_item_videoItem_videoBroadcast: MediaType.TVSHOW,
     "object.item.videoItem.musicVideoClip": MediaType.VIDEO,
     "object.item.playlistItem": MediaType.PLAYLIST,
     "object.item.textItem": MediaType.URL,
     "object.item.bookmarkItem": MediaType.URL,
     "object.item.epgItem": MediaType.EPISODE,
     "object.item.epgItem.audioProgram": MediaType.EPISODE,
-    "object.item.epgItem.videoProgram": MediaType.EPISODE,
+    object_item_epgItem_videoProgram: MediaType.EPISODE,
     "object.container": MediaType.PLAYLIST,
     "object.container.person": MediaType.ARTIST,
-    "object.container.person.musicArtist": MediaType.ARTIST,
+    object_container_person_musicArtist: MediaType.ARTIST,
     "object.container.playlistContainer": MediaType.PLAYLIST,
     "object.container.album": MediaType.ALBUM,
     "object.container.album.musicAlbum": MediaType.ALBUM,
@@ -71,21 +76,21 @@ MEDIA_TYPE_MAP: Mapping[str, MediaType] = {
 # directly, in which case it's not specified and other defaults will be used.
 MEDIA_UPNP_CLASS_MAP: Mapping[MediaType | str, str] = {
     MediaType.ALBUM: "object.container.album.musicAlbum",
-    MediaType.ARTIST: "object.container.person.musicArtist",
-    MediaType.CHANNEL: "object.item.videoItem.videoBroadcast",
+    MediaType.ARTIST: object_container_person_musicArtist,
+    MediaType.CHANNEL: object_item_videoItem_videoBroadcast,
     MediaType.CHANNELS: "object.container.channelGroup",
-    MediaType.COMPOSER: "object.container.person.musicArtist",
-    MediaType.CONTRIBUTING_ARTIST: "object.container.person.musicArtist",
-    MediaType.EPISODE: "object.item.epgItem.videoProgram",
+    MediaType.COMPOSER: object_container_person_musicArtist,
+    MediaType.CONTRIBUTING_ARTIST: object_container_person_musicArtist,
+    MediaType.EPISODE: object_item_epgItem_videoProgram,
     MediaType.GENRE: "object.container.genre",
     MediaType.IMAGE: "object.item.imageItem",
     MediaType.MOVIE: "object.item.videoItem.movie",
-    MediaType.MUSIC: "object.item.audioItem.musicTrack",
+    MediaType.MUSIC: bject_item_audioItem_musicTrack,
     MediaType.PLAYLIST: "object.item.playlistItem",
     MediaType.PODCAST: "object.item.audioItem.audioBook",
-    MediaType.SEASON: "object.item.epgItem.videoProgram",
-    MediaType.TRACK: "object.item.audioItem.musicTrack",
-    MediaType.TVSHOW: "object.item.videoItem.videoBroadcast",
+    MediaType.SEASON: object_item_epgItem_videoProgram,
+    MediaType.TRACK: bject_item_audioItem_musicTrack,
+    MediaType.TVSHOW: object_item_videoItem_videoBroadcast,
     MediaType.URL: "object.item.bookmarkItem",
     MediaType.VIDEO: "object.item.videoItem",
 }
