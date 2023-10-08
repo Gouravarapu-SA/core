@@ -168,7 +168,7 @@ class MySensorsLightRGB(MySensorsLight):
 
     def _turn_on_rgb(self, **kwargs: Any) -> None:
         """Turn on RGB child device."""
-        hex_color = self._values.get(self.value_type)
+        
         new_rgb: tuple[int, int, int] | None = kwargs.get(ATTR_RGB_COLOR)
         if new_rgb is None:
             return
@@ -215,7 +215,7 @@ class MySensorsLightRGBW(MySensorsLightRGB):
 
     def _turn_on_rgbw(self, **kwargs: Any) -> None:
         """Turn on RGBW child device."""
-        hex_color = self._values.get(self.value_type)
+        
         new_rgbw: tuple[int, int, int, int] | None = kwargs.get(ATTR_RGBW_COLOR)
         if new_rgbw is None:
             return
