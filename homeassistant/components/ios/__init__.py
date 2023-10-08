@@ -293,7 +293,7 @@ async def async_setup_entry(
     return True
 
 
-class iOSPushConfigView(HomeAssistantView):
+class iosPushConfigView(HomeAssistantView):
     """A view that provides the push categories configuration."""
 
     url = "/api/ios/push"
@@ -309,7 +309,7 @@ class iOSPushConfigView(HomeAssistantView):
         return self.json(self.push_config)
 
 
-class iOSConfigView(HomeAssistantView):
+class iosConfigView(HomeAssistantView):
     """A view that provides the whole user-defined configuration."""
 
     url = "/api/ios/config"
@@ -325,7 +325,7 @@ class iOSConfigView(HomeAssistantView):
         return self.json(self.config)
 
 
-class iOSIdentifyDeviceView(HomeAssistantView):
+class iosIdentifyDeviceView(HomeAssistantView):
     """A view that accepts device identification requests."""
 
     url = "/api/ios/identify"
