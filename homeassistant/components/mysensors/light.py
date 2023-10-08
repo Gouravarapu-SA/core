@@ -168,7 +168,7 @@ class MySensorsLightRGB(MySensorsLight):
 
     def _turn_on_rgb(self, **kwargs: Any) -> None:
         """Turn on RGB child device."""
-        hex_color = self._values.get(self.value_type)
+        
         new_rgb: tuple[int, int, int] | None = kwargs.get(ATTR_RGB_COLOR)
         if new_rgb is None:
             return
